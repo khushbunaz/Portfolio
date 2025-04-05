@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -9,5 +11,37 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer components {
+  .hero-title {
+    @apply text-7xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter;
+  }
+  
+  .section-title {
+    @apply text-3xl md:text-4xl font-serif font-light tracking-tight;
+  }
+  
+  .nav-link {
+    @apply font-sans text-sm uppercase tracking-widest transition-colors hover:text-black;
+  }
+  
+  .minimalist-container {
+    @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+  }
+}
+
+@layer utilities {
+  .font-serif {
+    font-family: 'Cormorant Garamond', serif;
+  }
+  
+  .font-sans {
+    font-family: 'Inter', sans-serif;
   }
 }

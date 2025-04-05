@@ -168,6 +168,10 @@ export const experiences = [
   }
 ];
 
+export type AboutSectionItem = 
+  | { title: string; organization: string; period: string; description?: string }
+  | { title: string; description: string };
+
 export const aboutSections = [
   {
     id: 1,
@@ -179,7 +183,7 @@ export const aboutSections = [
         organization: "LJ University, Ahmedabad, India",
         period: "Sep 2021 — May 2025"
       }
-    ]
+    ] as AboutSectionItem[]
   },
   {
     id: 2,
@@ -194,7 +198,7 @@ export const aboutSections = [
         title: "NASA Hackathon Participant",
         description: "Developed a prototype for efficient data visualization in space exploration"
       }
-    ]
+    ] as AboutSectionItem[]
   },
   {
     id: 3,
@@ -207,7 +211,7 @@ export const aboutSections = [
         period: "Mar 2025 — Present",
         description: "Contributing to the \"Automating Digital Document Indexing\" project using NLP, OCR, and Machine Learning."
       }
-    ]
+    ] as AboutSectionItem[]
   }
 ];
 

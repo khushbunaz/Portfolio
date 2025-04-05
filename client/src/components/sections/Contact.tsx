@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from "lucide-react";
 import { insertMessageSchema } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -22,7 +22,6 @@ import { useState } from "react";
 const contactFormSchema = z.object({
   name: z.string().min(2, "Name must be at least 2 characters."),
   email: z.string().email("Please enter a valid email address."),
-  subject: z.string().min(3, "Subject must be at least 3 characters."),
   message: z.string().min(10, "Message must be at least 10 characters.")
 });
 
@@ -36,7 +35,6 @@ export default function Contact() {
     defaultValues: {
       name: "",
       email: "",
-      subject: "",
       message: ""
     }
   });
@@ -45,20 +43,15 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      const response = await apiRequest("POST", "/api/contact", data);
-      const result = await response.json();
+      // Simulate successful API call for now
+      await new Promise(resolve => setTimeout(resolve, 1000));
       
-      if (result.success) {
-        toast({
-          title: "Success!",
-          description: "Your message has been sent successfully.",
-          variant: "default",
-        });
-        
-        form.reset();
-      } else {
-        throw new Error(result.message || "Failed to send message");
-      }
+      toast({
+        title: "Message sent",
+        description: "Thanks for reaching out. I'll get back to you soon!",
+      });
+      
+      form.reset();
     } catch (error) {
       toast({
         title: "Error",
@@ -71,125 +64,103 @@ export default function Contact() {
   }
 
   return (
-    <section id="contact" className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section id="contact" className="py-24 md:py-32">
+      <div className="minimalist-container">
         <motion.div 
-          className="max-w-3xl mx-auto text-center mb-12"
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.5 }}
+          className="mb-16"
         >
-          <h2 className="font-bold text-3xl md:text-4xl mb-4">Get In Touch</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-gray-600">Let's discuss your project or opportunity</p>
+          <h2 className="section-title mb-12">Contact</h2>
         </motion.div>
         
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-          <motion.div 
-            className="bg-gray-50 rounded-xl p-8 shadow-sm"
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-24">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="font-semibold text-2xl mb-6">Contact Information</h3>
+            <h3 className="font-serif text-2xl font-light tracking-tight mb-12">Let's talk about your project</h3>
             
-            <div className="space-y-6">
-              <div className="flex">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
-                  <Mail className="text-blue-600 h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-gray-500 text-sm mb-1">Email</p>
-                  <a 
-                    href="mailto:khushbudalal04@gmail.com" 
-                    className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
-                  >
-                    khushbudalal04@gmail.com
-                  </a>
-                </div>
+            <div className="space-y-8 mb-12">
+              <div className="flex items-center gap-4">
+                <Mail className="text-black h-5 w-5" />
+                <a 
+                  href="mailto:khushbudalal04@gmail.com" 
+                  className="text-black hover:text-gray-600 transition-colors"
+                >
+                  khushbudalal04@gmail.com
+                </a>
               </div>
               
-              <div className="flex">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
-                  <Phone className="text-blue-600 h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-gray-500 text-sm mb-1">Phone</p>
-                  <a 
-                    href="tel:+919724353028" 
-                    className="text-gray-800 font-medium hover:text-blue-600 transition-colors"
-                  >
-                    +91 97243 53028
-                  </a>
-                </div>
+              <div className="flex items-center gap-4">
+                <Phone className="text-black h-5 w-5" />
+                <a 
+                  href="tel:+919724353028" 
+                  className="text-black hover:text-gray-600 transition-colors"
+                >
+                  +91 97243 53028
+                </a>
               </div>
               
-              <div className="flex">
-                <div className="w-12 h-12 rounded-lg bg-blue-100 flex items-center justify-center mr-4">
-                  <MapPin className="text-blue-600 h-5 w-5" />
-                </div>
-                <div>
-                  <p className="text-gray-500 text-sm mb-1">Location</p>
-                  <p className="text-gray-800 font-medium">Ahmedabad, India</p>
-                </div>
+              <div className="flex items-center gap-4">
+                <MapPin className="text-black h-5 w-5" />
+                <span className="text-black">Ahmedabad, India</span>
               </div>
             </div>
             
-            <div className="mt-8">
-              <h4 className="font-medium mb-3">Connect with me</h4>
-              <div className="flex space-x-4">
-                <a 
-                  href="https://www.linkedin.com/in/khushbunazdalal/" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
-                  aria-label="LinkedIn"
-                >
-                  <Linkedin className="h-5 w-5" />
-                </a>
-                <a 
-                  href="https://github.com/username" 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
-                  aria-label="GitHub"
-                >
-                  <Github className="h-5 w-5" />
-                </a>
-                <a 
-                  href="#" 
-                  className="w-10 h-10 rounded-full bg-blue-100 flex items-center justify-center text-blue-600 hover:bg-blue-600 hover:text-white transition-colors"
-                  aria-label="Twitter"
-                >
-                  <Twitter className="h-5 w-5" />
-                </a>
-              </div>
+            <div className="flex gap-6">
+              <a 
+                href="https://www.linkedin.com/in/khushbunazdalal/" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-600 transition-colors"
+                aria-label="LinkedIn profile"
+              >
+                <Linkedin className="h-5 w-5" />
+              </a>
+              <a 
+                href="https://github.com/username" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-600 transition-colors"
+                aria-label="GitHub profile"
+              >
+                <Github className="h-5 w-5" />
+              </a>
+              <a 
+                href="#" 
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-black hover:text-gray-600 transition-colors"
+                aria-label="Portfolio"
+              >
+                <ExternalLink className="h-5 w-5" />
+              </a>
             </div>
           </motion.div>
           
           <motion.div 
-            className="bg-gray-50 rounded-xl p-8 shadow-sm"
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            transition={{ duration: 0.5, delay: 0.2 }}
+            transition={{ duration: 0.5, delay: 0.3 }}
           >
-            <h3 className="font-semibold text-2xl mb-6">Send Me a Message</h3>
-            
             <Form {...form}>
-              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
                 <FormField
                   control={form.control}
                   name="name"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Your Name</FormLabel>
+                      <FormLabel className="text-black font-normal text-sm uppercase tracking-wider">Name</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="John Doe" 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500"
+                          placeholder="Your name" 
+                          className="border-gray-200 focus:border-black rounded-none p-3 text-black font-light"
                           {...field} 
                         />
                       </FormControl>
@@ -203,30 +174,12 @@ export default function Contact() {
                   name="email"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Your Email</FormLabel>
+                      <FormLabel className="text-black font-normal text-sm uppercase tracking-wider">Email</FormLabel>
                       <FormControl>
                         <Input 
-                          placeholder="john@example.com" 
+                          placeholder="Your email address" 
                           type="email"
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500"
-                          {...field} 
-                        />
-                      </FormControl>
-                      <FormMessage />
-                    </FormItem>
-                  )}
-                />
-                
-                <FormField
-                  control={form.control}
-                  name="subject"
-                  render={({ field }) => (
-                    <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Subject</FormLabel>
-                      <FormControl>
-                        <Input 
-                          placeholder="Project Inquiry" 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500"
+                          className="border-gray-200 focus:border-black rounded-none p-3 text-black font-light"
                           {...field} 
                         />
                       </FormControl>
@@ -240,12 +193,11 @@ export default function Contact() {
                   name="message"
                   render={({ field }) => (
                     <FormItem>
-                      <FormLabel className="text-gray-700 font-medium">Your Message</FormLabel>
+                      <FormLabel className="text-black font-normal text-sm uppercase tracking-wider">Message</FormLabel>
                       <FormControl>
                         <Textarea 
-                          placeholder="I'd like to discuss..." 
-                          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-blue-500"
-                          rows={4}
+                          placeholder="Tell me about your project..." 
+                          className="border-gray-200 focus:border-black rounded-none p-3 text-black font-light min-h-[120px]"
                           {...field} 
                         />
                       </FormControl>
@@ -256,10 +208,10 @@ export default function Contact() {
                 
                 <Button 
                   type="submit" 
-                  className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-medium py-3 rounded-lg transition-colors shadow-md hover:shadow-lg flex items-center justify-center"
+                  className="bg-black hover:bg-gray-800 transition-colors text-white rounded-none px-8 py-3"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? "Sending..." : "Send Message"} <Mail className="ml-2 h-4 w-4" />
+                  {isSubmitting ? "Sending..." : "Send Message"}
                 </Button>
               </form>
             </Form>

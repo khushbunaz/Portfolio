@@ -1,5 +1,4 @@
-import { Link } from "wouter";
-import { Github, Linkedin, Twitter } from "lucide-react";
+import { ExternalLink, Github, Linkedin } from "lucide-react";
 
 export default function Footer() {
   const year = new Date().getFullYear();
@@ -15,20 +14,22 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gray-900 text-white py-12">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col md:flex-row justify-between items-center">
-          <div className="mb-6 md:mb-0">
-            <h2 className="font-bold text-2xl mb-2">Khushbunaz Dalal</h2>
-            <p className="text-gray-400">AI/ML Engineer</p>
+    <footer className="border-t border-gray-100 py-12 bg-white">
+      <div className="minimalist-container">
+        <div className="flex flex-col md:flex-row justify-between items-start mb-12">
+          <div className="mb-8 md:mb-0">
+            <h2 className="font-serif text-2xl mb-4">Khushbunaz Dalal</h2>
+            <p className="text-gray-600 max-w-xs">
+              AI/ML Engineer crafting intelligent systems across digital & physical worlds.
+            </p>
           </div>
           
-          <div className="flex space-x-8">
-            {["home", "about", "projects", "contact"].map((item) => (
+          <div className="grid grid-cols-2 gap-x-12 gap-y-4">
+            {["projects", "about", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
-                className="text-gray-400 hover:text-white transition-colors capitalize"
+                className="text-gray-500 hover:text-black transition-colors text-sm uppercase tracking-wider"
                 onClick={(e) => {
                   e.preventDefault();
                   handleNavClick(item);
@@ -37,41 +38,53 @@ export default function Footer() {
                 {item}
               </a>
             ))}
+            <a 
+              href="#" 
+              className="text-gray-500 hover:text-black transition-colors text-sm uppercase tracking-wider"
+              onClick={(e) => {
+                e.preventDefault();
+                import("@/lib/utils").then(({ downloadFile }) => {
+                  downloadFile("/assets/CS_Resume.pdf", "Khushbunaz_Dalal_Resume.pdf");
+                });
+              }}
+            >
+              Resume
+            </a>
           </div>
         </div>
         
-        <div className="border-t border-gray-800 my-8"></div>
-        
         <div className="flex flex-col md:flex-row justify-between items-center">
-          <p className="text-gray-400 text-sm mb-4 md:mb-0">
-            © {year} Khushbunaz Dalal. All rights reserved.
+          <p className="text-gray-500 text-sm mb-4 md:mb-0">
+            © {year} Khushbunaz Dalal
           </p>
           
-          <div className="flex space-x-4">
+          <div className="flex space-x-6">
             <a 
               href="https://www.linkedin.com/in/khushbunazdalal/" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-              aria-label="LinkedIn"
+              className="text-gray-500 hover:text-black transition-colors"
+              aria-label="LinkedIn profile"
             >
-              <Linkedin size={20} />
+              <Linkedin size={18} />
             </a>
             <a 
               href="https://github.com/username" 
               target="_blank" 
               rel="noopener noreferrer"
-              className="text-gray-400 hover:text-white transition-colors"
-              aria-label="GitHub"
+              className="text-gray-500 hover:text-black transition-colors"
+              aria-label="GitHub profile"
             >
-              <Github size={20} />
+              <Github size={18} />
             </a>
             <a 
               href="#" 
-              className="text-gray-400 hover:text-white transition-colors"
-              aria-label="Twitter"
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="text-gray-500 hover:text-black transition-colors"
+              aria-label="Portfolio"
             >
-              <Twitter size={20} />
+              <ExternalLink size={18} />
             </a>
           </div>
         </div>

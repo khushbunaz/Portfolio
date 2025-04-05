@@ -3,22 +3,16 @@ import Footer from "@/components/layout/Footer";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
-import Skills from "@/components/sections/Skills";
-import Experience from "@/components/sections/Experience";
-import Publications from "@/components/sections/Publications";
-import Certifications from "@/components/sections/Certifications";
 import Contact from "@/components/sections/Contact";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 import { useEffect } from "react";
+import { motion } from "framer-motion";
 
 export default function Home() {
   const { activeSection, setActiveSection } = useScrollSpy([
     "home",
-    "about",
     "projects",
-    "skills",
-    "experience",
-    "publications",
+    "about",
     "contact"
   ]);
 
@@ -27,11 +21,8 @@ export default function Home() {
     const handleScroll = () => {
       const sections = [
         "home",
-        "about",
         "projects",
-        "skills",
-        "experience",
-        "publications",
+        "about",
         "contact"
       ];
       
@@ -55,19 +46,20 @@ export default function Home() {
   }, [setActiveSection]);
 
   return (
-    <div className="min-h-screen bg-background text-foreground font-sans">
+    <motion.div 
+      className="min-h-screen bg-white text-black font-sans"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.4 }}
+    >
       <Header activeSection={activeSection} />
       <main>
         <Hero />
-        <About />
         <Projects />
-        <Skills />
-        <Experience />
-        <Publications />
-        <Certifications />
+        <About />
         <Contact />
       </main>
       <Footer />
-    </div>
+    </motion.div>
   );
 }
