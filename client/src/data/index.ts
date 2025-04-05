@@ -258,15 +258,6 @@ export const publications = [
   },
   {
     id: 2,
-    title: "Advancement in 3D Design Automation using AI and Python: A Case Study in Architectural Visualization",
-    date: "Jan 2025",
-    journal: "Journal of Computational Design and Engineering Automation",
-    link: "https://www.linkedin.com/in/khushbunazdalal/",
-    description: "This paper presents a novel approach to architectural design automation using Python scripting and AI algorithms. The research demonstrates how to leverage the Blender Python API and machine learning techniques to automate complex 3D modeling tasks, optimize design workflows, and generate parametric architectural elements that respond to environmental and contextual variables.",
-    tags: ["3D Modeling", "Python", "Blender API", "Architectural Design", "Automation"]
-  },
-  {
-    id: 3,
     title: "Deep Learning Approaches for Medical Image Segmentation: Comparing U-Net Variants in Diagnostic Accuracy",
     date: "Nov 2024",
     journal: "IEEE Transactions on Medical Imaging",
