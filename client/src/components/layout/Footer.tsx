@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           
           <div className="grid grid-cols-2 gap-x-12 gap-y-4">
-            {["projects", "about", "contact"].map((item) => (
+            {["projects", "experience", "about", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
@@ -69,7 +69,7 @@ export default function Footer() {
               <Linkedin size={18} />
             </a>
             <a 
-              href="https://github.com/username" 
+              href="https://github.com/khushbunaz" 
               target="_blank" 
               rel="noopener noreferrer"
               className="text-gray-500 hover:text-black transition-colors"

@@ -8,8 +8,14 @@ export async function registerRoutes(app: Express): Promise<Server> {
   // Handle contact form submissions
   app.post("/api/contact", async (req, res) => {
     try {
+      // Extract and validate the contact form data
+      const { name, email, message, to } = req.body;
+      
       const messageData = insertMessageSchema.parse({
-        ...req.body,
+        name,
+        email,
+        message,
+        to: to || "khushbudalal04@gmail.com", // Default recipient if none provided
         createdAt: new Date().toISOString(),
       });
       

@@ -1,4 +1,7 @@
-import { users, type User, type InsertUser } from "@shared/schema";
+import { 
+  users, type User, type InsertUser, 
+  messages, type Message, type InsertMessage 
+} from "@shared/schema";
 
 // modify the interface with any CRUD methods
 // you might need
@@ -7,15 +10,20 @@ export interface IStorage {
   getUser(id: number): Promise<User | undefined>;
   getUserByUsername(username: string): Promise<User | undefined>;
   createUser(user: InsertUser): Promise<User>;
+  saveMessage(message: InsertMessage): Promise<Message>;
 }
 
 export class MemStorage implements IStorage {
   private users: Map<number, User>;
-  currentId: number;
+  private messages: Map<number, Message>;
+  currentUserId: number;
+  currentMessageId: number;
 
   constructor() {
     this.users = new Map();
-    this.currentId = 1;
+    this.messages = new Map();
+    this.currentUserId = 1;
+    this.currentMessageId = 1;
   }
 
   async getUser(id: number): Promise<User | undefined> {
@@ -29,10 +37,27 @@ export class MemStorage implements IStorage {
   }
 
   async createUser(insertUser: InsertUser): Promise<User> {
-    const id = this.currentId++;
+    const id = this.currentUserId++;
     const user: User = { ...insertUser, id };
     this.users.set(id, user);
     return user;
+  }
+  
+  async saveMessage(messageData: InsertMessage): Promise<Message> {
+    const id = this.currentMessageId++;
+    const message: Message = { 
+      ...messageData, 
+      id,
+      to: messageData.to || "khushbudalal04@gmail.com" // Ensure 'to' is set
+    };
+    this.messages.set(id, message);
+    
+    // Here you would typically send an email to the recipient
+    // using a service like SendGrid if you have an API key
+    
+    console.log(`Contact form submission from ${message.name} (${message.email}) to ${message.to}`);
+    
+    return message;
   }
 }
 

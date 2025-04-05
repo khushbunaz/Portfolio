@@ -22,7 +22,7 @@ export const projects = [
     description: "Developed a heart disease prediction model using machine learning classification techniques including SVM and Random Forest.",
     icon: Heart,
     category: "ml",
-    githubLink: "https://github.com/username/heart-disease-prediction",
+    githubLink: "https://github.com/khushbunaz/heart-disease-prediction",
     technologies: ["Machine Learning", "Python", "Scikit-learn", "Matplotlib", "Power BI"]
   },
   {
@@ -31,7 +31,7 @@ export const projects = [
     description: "Built a Tkinter-based AI-powered application for automated student record management with OCR and NLP-based document classification.",
     icon: Bot,
     category: "ai",
-    githubLink: "https://github.com/username/ai-desktop-app",
+    githubLink: "https://github.com/khushbunaz/ai-desktop-app",
     technologies: ["Python", "Tkinter", "OCR", "NLP"]
   },
   {
@@ -40,7 +40,7 @@ export const projects = [
     description: "Built a console-based system in Java for efficient order management using ArrayDeque with robust file operations.",
     icon: Utensils,
     category: "web",
-    githubLink: "https://github.com/username/restaurant-management",
+    githubLink: "https://github.com/khushbunaz/restaurant-management",
     technologies: ["Java", "Data Structures", "File I/O"]
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
     description: "Built a personalized fashion recommendation system using collaborative filtering and content-based approaches with Flask deployment.",
     icon: Shirt,
     category: "ml",
-    githubLink: "https://github.com/username/fashion-recommendation",
+    githubLink: "https://github.com/khushbunaz/fashion-recommendation",
     technologies: ["Python", "Flask", "Scikit-learn", "Pandas"]
   },
   {
@@ -58,7 +58,7 @@ export const projects = [
     description: "Automated web scraping tool that extracts key business data from multiple sources with data cleaning & deduplication features.",
     icon: Bug,
     category: "automation",
-    githubLink: "https://github.com/username/leadgenius-scraper",
+    githubLink: "https://github.com/khushbunaz/leadgenius-scraper",
     technologies: ["Python", "BeautifulSoup", "Selenium", "Data Processing"]
   }
 ];
@@ -135,35 +135,51 @@ export const experiences = [
     title: "Python and Machine Learning Intern",
     company: "BrainyBeam Technologies Pvt. Ltd.",
     location: "Ahmedabad, India",
-    period: "Nov 2024 — Present",
+    period: "Feb 2023 — Present",
     responsibilities: [
-      "Designed and optimized machine learning models for predictive analytics.",
-      "Conducted feature engineering and data preprocessing for enhanced accuracy.",
-      "Improved model performance by tuning hyperparameters and using ensemble learning."
+      "Designed and optimized machine learning models for predictive analytics using TensorFlow and PyTorch.",
+      "Implemented neural network architectures for deep learning applications in image segmentation and classification.",
+      "Conducted feature engineering and data preprocessing for enhanced model accuracy and performance.",
+      "Collaborated in developing ML model applications for production environments using Docker."
     ]
   },
   {
     id: 2,
-    title: "Python Developer Intern",
-    company: "Oceanmtech Pvt Ltd",
+    title: "Penetration Tester",
+    company: "MasterMind InfoSecurity Solution Pvt. Ltd.",
     location: "Ahmedabad, India",
-    period: "Nov 2023 — Mar 2024",
+    period: "Oct 2022 — Jan 2023",
     responsibilities: [
-      "Developed AI-powered web applications using Flask and Python.",
-      "Worked on data pipelines and API integration for ML model deployment.",
-      "Optimized Python scripts for faster computation and efficiency."
+      "Conducted vulnerability assessments and penetration testing on web applications and networks.",
+      "Identified security vulnerabilities, misconfigurations, and potential exploitation vectors.",
+      "Generated comprehensive reports detailing discovered vulnerabilities with remediation recommendations.",
+      "Automated security testing processes using Python scripting for improved efficiency."
     ]
   },
   {
     id: 3,
+    title: "Python Developer Intern",
+    company: "Oceanmtech Pvt Ltd",
+    location: "Ahmedabad, India",
+    period: "May 2022 — Sep 2022",
+    responsibilities: [
+      "Developed AI-powered web applications using Flask and Python.",
+      "Created and optimized API integrations for ML model deployment and data pipelines.",
+      "Built user authentication systems and implemented database schema designs.",
+      "Improved application performance through code optimization and efficient algorithms."
+    ]
+  },
+  {
+    id: 4,
     title: "Python Developer (Freelancer)",
     company: "Freelancer",
     location: "Ahmedabad, India",
-    period: "Oct 2022 — Present",
+    period: "Oct 2021 — Present",
     responsibilities: [
-      "Automated 3D modeling using Blender Python API for AI-driven design optimization.",
-      "Developed AI-based Telegram bots for workflow automation.",
-      "Debugged and optimized chatbot algorithms for better user interactions."
+      "Automated 3D modeling processes using Blender Python API for AI-driven design optimization.",
+      "Developed AI-based Telegram bots for workflow automation and client engagement.",
+      "Created custom Python modules for data processing and analysis tasks.",
+      "Implemented machine learning models for various client-specific requirements and use cases."
     ]
   }
 ];

@@ -4,6 +4,7 @@ import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
 import Projects from "@/components/sections/Projects";
 import Contact from "@/components/sections/Contact";
+import Experience from "@/components/sections/Experience";
 import { useScrollSpy } from "@/hooks/use-scroll-spy";
 import { useEffect } from "react";
 import { motion } from "framer-motion";
@@ -12,6 +13,7 @@ export default function Home() {
   const { activeSection, setActiveSection } = useScrollSpy([
     "home",
     "projects",
+    "experience",
     "about",
     "contact"
   ]);
@@ -22,6 +24,7 @@ export default function Home() {
       const sections = [
         "home",
         "projects",
+        "experience",
         "about",
         "contact"
       ];
@@ -56,6 +59,7 @@ export default function Home() {
       <main>
         <Hero />
         <Projects />
+        <Experience />
         <About />
         <Contact />
       </main>

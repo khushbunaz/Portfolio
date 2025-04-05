@@ -43,8 +43,15 @@ export default function Contact() {
     setIsSubmitting(true);
     
     try {
-      // Simulate successful API call for now
-      await new Promise(resolve => setTimeout(resolve, 1000));
+      // Use apiRequest to send the message to the server
+      const response = await apiRequest("POST", "/api/contact", {
+        ...data,
+        to: "khushbudalal04@gmail.com", // Send to the specified email
+      });
+      
+      if (!response.ok) {
+        throw new Error("Failed to send message");
+      }
       
       toast({
         title: "Message sent",
@@ -123,7 +130,7 @@ export default function Contact() {
                 <Linkedin className="h-5 w-5" />
               </a>
               <a 
-                href="https://github.com/username" 
+                href="https://github.com/khushbunaz" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="text-black hover:text-gray-600 transition-colors"

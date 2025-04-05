@@ -12,8 +12,8 @@ export const messages = pgTable("messages", {
   id: serial("id").primaryKey(),
   name: text("name").notNull(),
   email: text("email").notNull(),
-  subject: text("subject").notNull(),
   message: text("message").notNull(),
+  to: text("to").notNull().default("khushbudalal04@gmail.com"),
   createdAt: text("created_at").notNull(),
 });
 
@@ -22,12 +22,13 @@ export const insertUserSchema = createInsertSchema(users).pick({
   password: true,
 });
 
-export const insertMessageSchema = createInsertSchema(messages).pick({
-  name: true,
-  email: true,
-  subject: true,
-  message: true,
-  createdAt: true,
+// Create a custom insertMessageSchema to make 'to' optional
+export const insertMessageSchema = z.object({
+  name: z.string(),
+  email: z.string().email(),
+  message: z.string(),
+  to: z.string().optional().default("khushbudalal04@gmail.com"),
+  createdAt: z.string()
 });
 
 export type InsertUser = z.infer<typeof insertUserSchema>;
