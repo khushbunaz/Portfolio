@@ -1,0 +1,260 @@
+import { 
+  Brain,
+  Code,
+  BarChart,
+  Globe,
+  Database,
+  Wrench,
+  Heart,
+  Bot,
+  Utensils,
+  Shirt,
+  Bug,
+  GraduationCap,
+  Award,
+  HelpingHand
+} from "lucide-react";
+
+export const projects = [
+  {
+    id: 1,
+    title: "Heart Disease Prediction",
+    description: "Developed a heart disease prediction model using machine learning classification techniques including SVM and Random Forest.",
+    icon: Heart,
+    category: "ml",
+    githubLink: "https://github.com/username/heart-disease-prediction",
+    technologies: ["Machine Learning", "Python", "Scikit-learn", "Matplotlib", "Power BI"]
+  },
+  {
+    id: 2,
+    title: "AI-Powered Desktop Application",
+    description: "Built a Tkinter-based AI-powered application for automated student record management with OCR and NLP-based document classification.",
+    icon: Bot,
+    category: "ai",
+    githubLink: "https://github.com/username/ai-desktop-app",
+    technologies: ["Python", "Tkinter", "OCR", "NLP"]
+  },
+  {
+    id: 3,
+    title: "Restaurant Management System",
+    description: "Built a console-based system in Java for efficient order management using ArrayDeque with robust file operations.",
+    icon: Utensils,
+    category: "web",
+    githubLink: "https://github.com/username/restaurant-management",
+    technologies: ["Java", "Data Structures", "File I/O"]
+  },
+  {
+    id: 4,
+    title: "Fashion Recommendation System",
+    description: "Built a personalized fashion recommendation system using collaborative filtering and content-based approaches with Flask deployment.",
+    icon: Shirt,
+    category: "ml",
+    githubLink: "https://github.com/username/fashion-recommendation",
+    technologies: ["Python", "Flask", "Scikit-learn", "Pandas"]
+  },
+  {
+    id: 5,
+    title: "LeadGenius Scraper",
+    description: "Automated web scraping tool that extracts key business data from multiple sources with data cleaning & deduplication features.",
+    icon: Bug,
+    category: "automation",
+    githubLink: "https://github.com/username/leadgenius-scraper",
+    technologies: ["Python", "BeautifulSoup", "Selenium", "Data Processing"]
+  }
+];
+
+export const skills = [
+  {
+    id: 1,
+    category: "Programming",
+    icon: Code,
+    items: [
+      { name: "Python", proficiency: 95 },
+      { name: "Java", proficiency: 85 },
+      { name: "JavaScript", proficiency: 80 },
+      { name: "C", proficiency: 75 }
+    ]
+  },
+  {
+    id: 2,
+    category: "AI & Machine Learning",
+    icon: Brain,
+    items: [
+      { name: "PyTorch", proficiency: 90 },
+      { name: "TensorFlow", proficiency: 85 },
+      { name: "Computer Vision", proficiency: 80 },
+      { name: "NLP", proficiency: 85 }
+    ]
+  },
+  {
+    id: 3,
+    category: "Data Science & Analytics",
+    icon: BarChart,
+    items: [
+      { name: "Pandas", proficiency: 95 },
+      { name: "Scikit-learn", proficiency: 90 },
+      { name: "NumPy", proficiency: 95 },
+      { name: "Power BI", proficiency: 80 }
+    ]
+  },
+  {
+    id: 4,
+    category: "Web Development",
+    icon: Globe,
+    items: [
+      { name: "HTML5 & CSS3", proficiency: 90 },
+      { name: "ReactJS", proficiency: 85 },
+      { name: "Node.js", proficiency: 80 },
+      { name: "Django", proficiency: 75 }
+    ]
+  },
+  {
+    id: 5,
+    category: "Database Management",
+    icon: Database,
+    items: [
+      { name: "MySQL", proficiency: 90 },
+      { name: "MongoDB", proficiency: 85 }
+    ]
+  },
+  {
+    id: 6,
+    category: "Tools & Frameworks",
+    icon: Wrench,
+    items: [
+      { name: "Blender", proficiency: 85 },
+      { name: "Flask", proficiency: 90 },
+      { name: "Tkinter", proficiency: 85 }
+    ]
+  }
+];
+
+export const experiences = [
+  {
+    id: 1,
+    title: "Python and Machine Learning Intern",
+    company: "BrainyBeam Technologies Pvt. Ltd.",
+    location: "Ahmedabad, India",
+    period: "Nov 2024 — Present",
+    responsibilities: [
+      "Designed and optimized machine learning models for predictive analytics.",
+      "Conducted feature engineering and data preprocessing for enhanced accuracy.",
+      "Improved model performance by tuning hyperparameters and using ensemble learning."
+    ]
+  },
+  {
+    id: 2,
+    title: "Python Developer Intern",
+    company: "Oceanmtech Pvt Ltd",
+    location: "Ahmedabad, India",
+    period: "Nov 2023 — Mar 2024",
+    responsibilities: [
+      "Developed AI-powered web applications using Flask and Python.",
+      "Worked on data pipelines and API integration for ML model deployment.",
+      "Optimized Python scripts for faster computation and efficiency."
+    ]
+  },
+  {
+    id: 3,
+    title: "Python Developer (Freelancer)",
+    company: "Freelancer",
+    location: "Ahmedabad, India",
+    period: "Oct 2022 — Present",
+    responsibilities: [
+      "Automated 3D modeling using Blender Python API for AI-driven design optimization.",
+      "Developed AI-based Telegram bots for workflow automation.",
+      "Debugged and optimized chatbot algorithms for better user interactions."
+    ]
+  }
+];
+
+export const aboutSections = [
+  {
+    id: 1,
+    title: "Education",
+    icon: GraduationCap,
+    items: [
+      {
+        title: "Bachelor of Engineering in Computer Science",
+        organization: "LJ University, Ahmedabad, India",
+        period: "Sep 2021 — May 2025"
+      }
+    ]
+  },
+  {
+    id: 2,
+    title: "Achievements",
+    icon: Award,
+    items: [
+      {
+        title: "Successful Freelance Projects",
+        description: "Received excellent client feedback with measurable improvements in predictive modeling"
+      },
+      {
+        title: "NASA Hackathon Participant",
+        description: "Developed a prototype for efficient data visualization in space exploration"
+      }
+    ]
+  },
+  {
+    id: 3,
+    title: "Volunteering",
+    icon: HelpingHand,
+    items: [
+      {
+        title: "AI/ML Research Volunteer",
+        organization: "Omdena",
+        period: "Mar 2025 — Present",
+        description: "Contributing to the \"Automating Digital Document Indexing\" project using NLP, OCR, and Machine Learning."
+      }
+    ]
+  }
+];
+
+export const certifications = [
+  {
+    id: 1,
+    title: "Microsoft Certified Azure AI Fundamentals",
+    issuer: "Microsoft Learn Student Ambassadors"
+  },
+  {
+    id: 2,
+    title: "Exploratory Data Analysis For Machine Learning",
+    issuer: "Coursera"
+  },
+  {
+    id: 3,
+    title: "Building Generative AI-Powered Applications with Python",
+    issuer: "IBM"
+  },
+  {
+    id: 4,
+    title: "Data Structure",
+    issuer: "Coursera"
+  },
+  {
+    id: 5,
+    title: "HTML, CSS and JavaScript for Web Developers",
+    issuer: "Coursera"
+  }
+];
+
+export const publications = [
+  {
+    id: 1,
+    title: "Enhanced Movie Recommendation Systems: Integrating Collaborative Filtering with Content-Based Approaches for Improved User Experience",
+    date: "Feb 2025",
+    journal: "International Journal of Innovative Research in Computer Technology (IJIRCT)",
+    link: "#",
+    description: "This research explores hybrid movie recommendation systems by integrating collaborative filtering with content-based approaches. It addresses data sparsity, optimizes similarity metrics, and incorporates metadata-driven enhancements to improve recommendation accuracy. The study leverages machine learning techniques, including cosine similarity, demographic filtering, and sentiment analysis, to refine user preferences and enhance personalization in modern recommendation engines.",
+    tags: ["Recommendation Systems", "Machine Learning", "Collaborative Filtering", "Content-Based Filtering", "Sentiment Analysis"]
+  }
+];
+
+export const filterCategories = [
+  { id: "all", label: "All" },
+  { id: "ml", label: "Machine Learning" },
+  { id: "ai", label: "AI Applications" },
+  { id: "web", label: "Web Development" },
+  { id: "automation", label: "Automation" }
+];
