@@ -113,10 +113,7 @@ export default function Contact() {
                 </a>
               </div>
               
-              <div className="flex items-center gap-4">
-                <MapPin className="text-black h-5 w-5" />
-                <span className="text-black">Ahmedabad, India</span>
-              </div>
+              {/* Location removed as requested */}
             </div>
             
             <div className="flex gap-6">

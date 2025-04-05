@@ -36,10 +36,6 @@ export default function Hero() {
             </p>
             
             <div className="h-0.5 w-20 bg-black hidden md:block"></div>
-            
-            <p className="text-sm uppercase tracking-widest text-gray-500 font-sans">
-              Based in Ahmedabad, India
-            </p>
           </div>
         </motion.div>
 
