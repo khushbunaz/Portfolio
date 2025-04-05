@@ -252,7 +252,7 @@ export const publications = [
     title: "Enhanced Movie Recommendation Systems: Integrating Collaborative Filtering with Content-Based Approaches for Improved User Experience",
     date: "Feb 2025",
     journal: "International Journal of Innovative Research in Computer Technology (IJIRCT)",
-    link: "https://www.linkedin.com/in/khushbunazdalal/",
+    link: "https://www.ijirct.org/viewPaper.php?paperId=2502077",
     description: "This research explores hybrid movie recommendation systems by integrating collaborative filtering with content-based approaches. It addresses data sparsity, optimizes similarity metrics, and incorporates metadata-driven enhancements to improve recommendation accuracy. The study leverages machine learning techniques, including cosine similarity, demographic filtering, and sentiment analysis, to refine user preferences and enhance personalization in modern recommendation engines.",
     tags: ["Recommendation Systems", "Machine Learning", "Collaborative Filtering", "Content-Based Filtering", "Sentiment Analysis"]
   }
