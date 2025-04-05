@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { z } from "zod";
 import { motion } from "framer-motion";
-import { Mail, Phone, MapPin, Github, Linkedin, ExternalLink } from "lucide-react";
+import { Mail, Github, Linkedin, ExternalLink } from "lucide-react";
 import { insertMessageSchema } from "@shared/schema";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
@@ -103,15 +103,7 @@ export default function Contact() {
                 </a>
               </div>
               
-              <div className="flex items-center gap-4">
-                <Phone className="text-black h-5 w-5" />
-                <a 
-                  href="tel:+919724353028" 
-                  className="text-black hover:text-gray-600 transition-colors"
-                >
-                  +91 97243 53028
-                </a>
-              </div>
+              {/* Phone number removed as requested */}
               
               {/* Location removed as requested */}
             </div>
