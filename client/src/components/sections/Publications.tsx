@@ -1,67 +1,71 @@
 import { motion } from "framer-motion";
 import { publications } from "@/data";
 import { ExternalLink } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export default function Publications() {
   return (
-    <section id="publications" className="py-16 md:py-24 bg-white">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
-          className="max-w-3xl mx-auto text-center mb-12"
+    <section 
+      id="publications"
+      className="section-padding bg-gray-50"
+    >
+      <div className="minimalist-container max-w-5xl">
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.5 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="mb-16 text-center"
         >
-          <h2 className="font-bold text-3xl md:text-4xl mb-4">Publications</h2>
-          <div className="w-20 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-gray-600">My research contributions to the field</p>
+          <h2 className="section-title">Publications</h2>
+          <p className="section-subtitle mt-4 max-w-2xl mx-auto">
+            Selected research papers and articles I've published in academic journals and conferences
+          </p>
         </motion.div>
-        
-        <div className="max-w-4xl mx-auto">
-          {publications.map((publication) => (
-            <motion.div 
+
+        <div className="grid grid-cols-1 gap-12">
+          {publications.map((publication, index) => (
+            <motion.div
               key={publication.id}
-              className="bg-gray-50 rounded-xl p-6 md:p-8 shadow-sm hover:shadow-md transition-all duration-300"
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.5, delay: 0.2 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
+              viewport={{ once: true, margin: "-100px" }}
+              className="publication-card bg-white p-8 border border-gray-100 hover:shadow-sm transition-shadow duration-300"
             >
-              <div className="flex flex-col md:flex-row md:justify-between md:items-start gap-4 mb-6">
-                <h3 className="font-semibold text-xl md:text-2xl">{publication.title}</h3>
-                <span className="bg-blue-100 text-blue-600 px-4 py-2 rounded-lg text-sm font-medium whitespace-nowrap">
-                  {publication.date}
-                </span>
-              </div>
-              
-              <p className="text-gray-700 font-medium mb-2">{publication.journal}</p>
-              
-              <div className="mb-6">
+              <div className="flex flex-col md:flex-row md:items-start justify-between mb-4">
+                <h3 className="text-xl font-serif font-light tracking-tight flex-grow mr-4">
+                  {publication.title}
+                </h3>
                 <a 
                   href={publication.link} 
-                  className="text-blue-600 hover:text-blue-800 transition-colors font-medium inline-flex items-center"
-                  target="_blank"
+                  target="_blank" 
                   rel="noopener noreferrer"
+                  className="text-black mt-2 md:mt-0 hover:text-gray-600 transition-colors flex items-center gap-1 text-sm"
+                  aria-label={`View publication: ${publication.title}`}
                 >
-                  <span>Publication Link: IJIRCT Paper</span>
-                  <ExternalLink className="ml-2 h-4 w-4" />
+                  <span>View</span>
+                  <ExternalLink className="h-4 w-4" />
                 </a>
               </div>
               
-              <div className="bg-white rounded-lg p-4 mb-6">
-                <p className="text-gray-600">
-                  {publication.description}
-                </p>
+              <div className="flex flex-col md:flex-row md:items-center gap-2 md:gap-6 text-sm text-gray-500 mb-4">
+                <div className="font-medium">{publication.journal}</div>
+                <div className={cn("hidden md:block", "text-gray-300")}>•</div>
+                <div>{publication.date}</div>
               </div>
               
+              <p className="text-gray-600 mb-6 text-sm leading-relaxed">
+                {publication.description}
+              </p>
+              
               <div className="flex flex-wrap gap-2">
-                {publication.tags.map((tag, index) => (
+                {publication.tags.map((tag, tagIndex) => (
                   <span 
-                    key={index} 
-                    className="bg-blue-50 text-blue-600 px-3 py-1 rounded-full text-xs font-medium"
+                    key={tagIndex}
+                    className="text-xs tracking-wider uppercase font-sans text-gray-500"
                   >
-                    {tag}
+                    {tag}{tagIndex < publication.tags.length - 1 && " •"}
                   </span>
                 ))}
               </div>

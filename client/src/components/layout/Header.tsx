@@ -8,9 +8,10 @@ interface HeaderProps {
 }
 
 const navItems = [
-  { id: "projects", label: "Projects" },
-  { id: "experience", label: "Experience" },
   { id: "about", label: "About" },
+  { id: "experience", label: "Experience" },
+  { id: "projects", label: "Projects" },
+  { id: "publications", label: "Publications" },
   { id: "resume", label: "Resume" },
   { id: "contact", label: "Contact" }
 ];

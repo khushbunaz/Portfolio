@@ -25,7 +25,7 @@ export default function Footer() {
           </div>
           
           <div className="grid grid-cols-2 gap-x-12 gap-y-4">
-            {["projects", "experience", "about", "contact"].map((item) => (
+            {["about", "experience", "projects", "publications", "contact"].map((item) => (
               <a
                 key={item}
                 href={`#${item}`}
