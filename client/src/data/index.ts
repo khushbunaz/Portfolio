@@ -255,15 +255,6 @@ export const publications = [
     link: "https://www.linkedin.com/in/khushbunazdalal/",
     description: "This research explores hybrid movie recommendation systems by integrating collaborative filtering with content-based approaches. It addresses data sparsity, optimizes similarity metrics, and incorporates metadata-driven enhancements to improve recommendation accuracy. The study leverages machine learning techniques, including cosine similarity, demographic filtering, and sentiment analysis, to refine user preferences and enhance personalization in modern recommendation engines.",
     tags: ["Recommendation Systems", "Machine Learning", "Collaborative Filtering", "Content-Based Filtering", "Sentiment Analysis"]
-  },
-  {
-    id: 2,
-    title: "Deep Learning Approaches for Medical Image Segmentation: Comparing U-Net Variants in Diagnostic Accuracy",
-    date: "Nov 2024",
-    journal: "IEEE Transactions on Medical Imaging",
-    link: "https://www.linkedin.com/in/khushbunazdalal/",
-    description: "This study evaluates and compares various U-Net architecture variants for medical image segmentation tasks. The research implements and benchmarks different deep learning models on diverse medical imaging datasets, focusing on segmentation accuracy, computational efficiency, and clinical applicability. The findings contribute to advancing automated diagnostic tools in medical imaging analysis.",
-    tags: ["Deep Learning", "Medical Imaging", "U-Net", "Image Segmentation", "PyTorch"]
   }
 ];
 
