@@ -20,7 +20,12 @@
 
 @layer components {
   .hero-title {
-    @apply text-7xl md:text-8xl lg:text-9xl font-serif font-light tracking-tighter;
+    @apply text-7xl md:text-8xl lg:text-9xl font-serif font-light;
+    /* Katherine-style typography */
+    letter-spacing: -0.05em;
+    line-height: 0.9;
+    color: #000;
+    font-weight: 300;
   }
   
   .section-title {

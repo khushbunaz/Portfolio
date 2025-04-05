@@ -145,19 +145,6 @@ export const experiences = [
   },
   {
     id: 2,
-    title: "Penetration Tester",
-    company: "MasterMind InfoSecurity Solution Pvt. Ltd.",
-    location: "Ahmedabad, India",
-    period: "Oct 2022 — Jan 2023",
-    responsibilities: [
-      "Conducted vulnerability assessments and penetration testing on web applications and networks.",
-      "Identified security vulnerabilities, misconfigurations, and potential exploitation vectors.",
-      "Generated comprehensive reports detailing discovered vulnerabilities with remediation recommendations.",
-      "Automated security testing processes using Python scripting for improved efficiency."
-    ]
-  },
-  {
-    id: 3,
     title: "Python Developer Intern",
     company: "Oceanmtech Pvt Ltd",
     location: "Ahmedabad, India",
@@ -170,7 +157,7 @@ export const experiences = [
     ]
   },
   {
-    id: 4,
+    id: 3,
     title: "Python Developer (Freelancer)",
     company: "Freelancer",
     location: "Ahmedabad, India",

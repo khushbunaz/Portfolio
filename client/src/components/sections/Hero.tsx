@@ -21,9 +21,14 @@ export default function Hero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <h1 className="hero-title mb-6">
-            khush<span className="text-gray-300">bunaz</span>
-          </h1>
+          <div className="relative">
+            <div className="flower-decoration absolute -right-10 top-[10%] z-10">
+              <img src="/assets/flower.svg" alt="" className="md:w-32 md:h-32" />
+            </div>
+            <h1 className="hero-title mb-6 font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none tracking-tight">
+              khushbunaz
+            </h1>
+          </div>
           
           <div className="flex flex-col md:flex-row md:items-center gap-y-4 md:gap-x-8">
             <p className="text-xl md:text-2xl font-light font-serif tracking-tight max-w-xl">
