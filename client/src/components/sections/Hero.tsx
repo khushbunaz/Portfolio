@@ -57,7 +57,7 @@ export default function Hero() {
         >
           <button 
             onClick={handleScrollDown}
-            className="flex flex-col items-center text-black hover:text-gray-600 transition-colors group"
+            className="flex flex-col items-center text-foreground hover:text-primary transition-colors group"
             aria-label="Scroll to projects"
           >
             <span className="text-xs uppercase tracking-widest mb-2 font-sans">Scroll to explore</span>

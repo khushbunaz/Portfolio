@@ -1,7 +1,8 @@
 import { useState, useEffect } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Sun, Moon } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion } from "framer-motion";
+import { useTheme } from "@/lib/theme-context";
 
 interface HeaderProps {
   activeSection: string;
@@ -19,6 +20,7 @@ const navItems = [
 export default function Header({ activeSection }: HeaderProps) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const { theme, toggleTheme } = useTheme();
 
   // Handle scroll effect for header
   useEffect(() => {
@@ -58,13 +60,15 @@ export default function Header({ activeSection }: HeaderProps) {
   return (
     <header className={cn(
       "fixed w-full top-0 z-50 transition-all duration-500",
-      scrolled ? "bg-white/95 backdrop-blur-sm py-4" : "bg-transparent py-6"
+      scrolled 
+        ? "bg-background/95 backdrop-blur-sm py-4" 
+        : "bg-transparent py-6"
     )}>
       <div className="minimalist-container">
         <div className="flex justify-between items-center">
           <a 
             href="#home" 
-            className="font-serif text-2xl tracking-tight hover:opacity-80 transition-opacity"
+            className="font-serif text-2xl tracking-tight hover:opacity-80 transition-opacity text-foreground"
             onClick={(e) => {
               e.preventDefault();
               handleNavClick("home");
@@ -74,8 +78,8 @@ export default function Header({ activeSection }: HeaderProps) {
           </a>
           
           {/* Desktop Navigation */}
-          <nav className="hidden md:block">
-            <ul className="flex space-x-10">
+          <nav className="hidden md:flex items-center">
+            <ul className="flex space-x-10 mr-6">
               {navItems.map((item) => (
                 <li key={item.id}>
                   <a 
@@ -83,8 +87,8 @@ export default function Header({ activeSection }: HeaderProps) {
                     className={cn(
                       "nav-link",
                       activeSection === item.id 
-                        ? "text-black" 
-                        : "text-gray-500"
+                        ? "text-foreground font-medium" 
+                        : "text-muted-foreground"
                     )}
                     onClick={(e) => {
                       e.preventDefault();
@@ -100,16 +104,36 @@ export default function Header({ activeSection }: HeaderProps) {
                 </li>
               ))}
             </ul>
+            
+            {/* Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors duration-200"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
           </nav>
           
-          {/* Mobile menu button */}
-          <button 
-            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="md:hidden text-black focus:outline-none"
-            aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
-          >
-            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-          </button>
+          <div className="md:hidden flex items-center">
+            {/* Theme Toggle Button (Mobile) */}
+            <button
+              onClick={toggleTheme}
+              className="mr-4 p-2 rounded-full bg-secondary text-secondary-foreground hover:bg-secondary/80 transition-colors duration-200"
+              aria-label={theme === 'dark' ? "Switch to light mode" : "Switch to dark mode"}
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            
+            {/* Mobile menu button */}
+            <button 
+              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              className="text-foreground focus:outline-none"
+              aria-label={mobileMenuOpen ? "Close menu" : "Open menu"}
+            >
+              {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+            </button>
+          </div>
         </div>
         
         {/* Mobile Navigation */}
@@ -129,8 +153,8 @@ export default function Header({ activeSection }: HeaderProps) {
                     className={cn(
                       "block text-sm uppercase tracking-widest",
                       activeSection === item.id 
-                        ? "text-black" 
-                        : "text-gray-500"
+                        ? "text-foreground font-medium" 
+                        : "text-muted-foreground"
                     )}
                     onClick={(e) => {
                       e.preventDefault();
