@@ -28,7 +28,7 @@ export default function Hero() {
                 alt="" 
                 className="w-full h-full object-contain" 
                 style={{
-                  filter: "drop-shadow(0 0 12px rgba(255, 215, 0, 0.5))",
+                  filter: "drop-shadow(0 0 10px rgba(245, 202, 195, 0.4))",
                   animation: "pulse 10s infinite ease-in-out, shimmer 15s infinite ease-in-out"
                 }}
               />
