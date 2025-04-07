@@ -66,12 +66,65 @@
 
 @layer components {
   .hero-title {
-    @apply text-7xl md:text-8xl lg:text-9xl font-serif font-light;
-    /* Katherine-style typography */
-    letter-spacing: -0.05em;
+    @apply text-7xl md:text-8xl lg:text-9xl font-serif;
+    letter-spacing: -0.02em;
     line-height: 0.9;
-    @apply text-foreground;
-    font-weight: 300;
+    background: linear-gradient(135deg, #f9c0e0 0%, #d2b2e5 100%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    padding: 0.1em 0.05em;
+    font-weight: 600;
+    transform-style: preserve-3d;
+    transform: perspective(500px);
+    text-shadow: 
+      0px 1px 1px rgba(255, 255, 255, 0.5),
+      0px 2px 2px rgba(249, 192, 224, 0.3),
+      0px 4px 4px rgba(210, 178, 229, 0.2),
+      0px 8px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Golden embossed edge effect */
+  .hero-title::before {
+    content: 'khushbunaz';
+    position: absolute;
+    z-index: -2;
+    top: 0.02em;
+    left: 0.02em;
+    background: linear-gradient(135deg, #e6c982 0%, #daa520 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.7;
+    transform: translateZ(-5px);
+    filter: blur(1px);
+  }
+  
+  /* Pink/lavender base */
+  .hero-title::after {
+    content: 'khushbunaz';
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    background: linear-gradient(135deg, #f9c0e0 0%, #d2b2e5 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    opacity: 0.9;
+    text-shadow: 0px 1px 1px rgba(255, 255, 255, 0.3);
+  }
+  
+  /* Add responsive adjustments */
+  @media (max-width: 768px) {
+    .hero-title {
+      transform: perspective(300px);
+      text-shadow: 
+        0px 1px 1px rgba(255, 255, 255, 0.5),
+        0px 2px 2px rgba(249, 192, 224, 0.3),
+        0px 3px 3px rgba(0, 0, 0, 0.1);
+    }
   }
   
   .section-title {
@@ -124,6 +177,12 @@
     50% { filter: hue-rotate(5deg) brightness(1.05) saturate(1.1); }
     75% { filter: hue-rotate(2deg) brightness(1.02) saturate(1.05); }
     100% { filter: hue-rotate(0deg) brightness(1) saturate(1); }
+  }
+  
+  @keyframes shine {
+    0% { transform: rotate(45deg) translateY(-60%); }
+    50% { transform: rotate(45deg) translateY(100%); opacity: 0.5; }
+    100% { transform: rotate(45deg) translateY(260%); opacity: 0; }
   }
   
   .hover-effect {
