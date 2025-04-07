@@ -45,7 +45,7 @@ export default function Hero() {
               AI/ML Engineer crafting intelligent systems across digital & physical worlds.
             </p>
             
-            <div className="h-0.5 w-20 bg-black hidden md:block"></div>
+
           </div>
         </motion.div>
 
