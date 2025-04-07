@@ -28,8 +28,8 @@ export default function Hero() {
                 alt="" 
                 className="w-full h-full object-contain" 
                 style={{
-                  filter: "drop-shadow(0 0 10px rgba(245, 202, 195, 0.4))",
-                  animation: "pulse 10s infinite ease-in-out, shimmer 15s infinite ease-in-out"
+                  filter: "drop-shadow(0 0 10px rgba(240, 218, 214, 0.3))",
+                  animation: "pulse 20s infinite ease-in-out, shimmer 25s infinite ease-in-out"
                 }}
               />
             </div>

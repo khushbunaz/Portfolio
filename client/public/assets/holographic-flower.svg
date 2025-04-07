@@ -1,152 +1,177 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <!-- Elegant gradients -->
+    <!-- Pearlescent gradient for petals -->
     <linearGradient id="petal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#FFF1F2" /> <!-- Blush pink lightest -->
-      <stop offset="30%" stop-color="#FDE2E4" /> <!-- Light blush -->
-      <stop offset="60%" stop-color="#F5CAC3" /> <!-- Blush pink -->
-      <stop offset="85%" stop-color="#F7D6E0" /> <!-- Light champagne pink -->
-      <stop offset="100%" stop-color="#F2E9E4" /> <!-- Pearl white -->
+      <stop offset="0%" stop-color="#FFF5F5" /> <!-- Pearl white -->
+      <stop offset="30%" stop-color="#F9E6E0" /> <!-- Light peach -->
+      <stop offset="60%" stop-color="#F0DAD6" /> <!-- Blush pink -->
+      <stop offset="85%" stop-color="#F0E6E0" /> <!-- Champagne beige -->
+      <stop offset="100%" stop-color="#FFFDFA" /> <!-- Off-white -->
     </linearGradient>
     
-    <linearGradient id="center-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#F5EBE0" /> <!-- Champagne beige -->
-      <stop offset="40%" stop-color="#F9F5F1" /> <!-- Pearl white -->
-      <stop offset="60%" stop-color="#F8EDEB" /> <!-- Blush white -->
-      <stop offset="100%" stop-color="#F7E2E2" /> <!-- Blush pink lightest -->
+    <!-- Pearl center gradient -->
+    <linearGradient id="pearl-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFF5F0" /> <!-- Pearl white -->
+      <stop offset="40%" stop-color="#F5E9E4" /> <!-- Light champagne -->
+      <stop offset="60%" stop-color="#F2E2DA" /> <!-- Soft peach -->
+      <stop offset="100%" stop-color="#F0E0D8" /> <!-- Light beige -->
     </linearGradient>
     
-    <!-- Glass effect filters -->
-    <filter id="glass-blur" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceGraphic" stdDeviation="2" result="blur"/>
-      <feColorMatrix in="blur" type="matrix" values="1 0 0 0 0  0 1 0 0 0  0 0 1 0 0  0 0 0 18 -7" result="glass"/>
-      <feComposite in="SourceGraphic" in2="glass" operator="atop"/>
-    </filter>
+    <!-- Small pearl gradient -->
+    <radialGradient id="small-pearl" cx="50%" cy="50%" r="50%" fx="25%" fy="25%">
+      <stop offset="0%" stop-color="#FFFFFF" /> <!-- Bright white highlight -->
+      <stop offset="50%" stop-color="#FFF0EB" /> <!-- Pearl body -->
+      <stop offset="100%" stop-color="#F0E5E0" /> <!-- Pearl shadow -->
+    </radialGradient>
     
-    <!-- Holographic shimmer -->
-    <filter id="holographic-shimmer" x="-50%" y="-50%" width="200%" height="200%">
-      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise" />
-      <feDisplacementMap in="SourceGraphic" in2="noise" scale="3" xChannelSelector="R" yChannelSelector="G" />
-      <feGaussianBlur stdDeviation="0.5" />
-    </filter>
-    
-    <!-- Iridescent glow -->
-    <filter id="iridescent-glow" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur stdDeviation="4" result="blur" />
-      <feFlood flood-color="#FFF1F2" flood-opacity="0.5" result="pinkGlow" />
-      <feFlood flood-color="#F5EBE0" flood-opacity="0.5" result="beigeGlow" />
-      <feBlend in="pinkGlow" in2="beigeGlow" mode="screen" result="blendedGlow" />
-      <feComposite in="blendedGlow" in2="blur" operator="in" result="coloredBlur" />
-      <feComposite in="SourceGraphic" in2="coloredBlur" operator="over" />
-    </filter>
-    
-    <!-- Premium glassy reflection -->
-    <filter id="premium-glass" x="-50%" y="-50%" width="200%" height="200%">
-      <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur" />
-      <feOffset in="blur" dx="2" dy="2" result="offsetBlur" />
-      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.8" specularExponent="20" lighting-color="#FFFFFF" result="specOut">
+    <!-- Pearlescent shine filter -->
+    <filter id="pearl-shine" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="2" result="blur" />
+      <feOffset in="blur" dx="1" dy="1" result="offsetBlur" />
+      <feSpecularLighting in="blur" surfaceScale="5" specularConstant="0.75" 
+                         specularExponent="20" lighting-color="#FFFFFF" result="specOut">
         <fePointLight x="300" y="150" z="200" />
       </feSpecularLighting>
       <feComposite in="specOut" in2="SourceAlpha" operator="in" result="specOut" />
       <feComposite in="SourceGraphic" in2="specOut" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
     </filter>
+    
+    <!-- Subtle iridescent overlay -->
+    <filter id="iridescent-overlay" x="-50%" y="-50%" width="200%" height="200%">
+      <feTurbulence type="fractalNoise" baseFrequency="0.01" numOctaves="2" result="noise" />
+      <feColorMatrix in="noise" type="matrix" 
+                   values="0 0 0 0 0.9
+                           0 0 0 0 0.95
+                           0 0 0 0 1
+                           0 0 0 0.05 0" result="iridescence" />
+      <feComposite in="SourceGraphic" in2="iridescence" operator="arithmetic" k1="0" k2="1" k3="1" k4="0" />
+    </filter>
   </defs>
   
-  <!-- Main flower petals -->
+  <!-- Main flower -->
   <g transform="translate(300, 300)">
-    <!-- Petal 1 -->
-    <g transform="rotate(0)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" 
+    <!-- Petals Layer 1 (back layer) -->
+    <g filter="url(#iridescent-overlay)">
+      <!-- Petal 1 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
             fill="url(#petal-gradient)" 
-            stroke="#FFF1F2" 
-            stroke-width="1" 
-            opacity="0.95" 
-            filter="url(#glass-blur)" />
-    </g>
-    
-    <!-- Petal 2 -->
-    <g transform="rotate(72)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(0)" />
+      
+      <!-- Petal 2 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
             fill="url(#petal-gradient)" 
-            stroke="#FFF1F2" 
-            stroke-width="1" 
-            opacity="0.93" 
-            filter="url(#glass-blur)" />
-    </g>
-    
-    <!-- Petal 3 -->
-    <g transform="rotate(144)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(36)" />
+      
+      <!-- Petal 3 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
             fill="url(#petal-gradient)" 
-            stroke="#FFF1F2" 
-            stroke-width="1" 
-            opacity="0.95" 
-            filter="url(#glass-blur)" />
-    </g>
-    
-    <!-- Petal 4 -->
-    <g transform="rotate(216)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(72)" />
+      
+      <!-- Petal 4 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
             fill="url(#petal-gradient)" 
-            stroke="#FFF1F2" 
-            stroke-width="1" 
-            opacity="0.93" 
-            filter="url(#glass-blur)" />
-    </g>
-    
-    <!-- Petal 5 -->
-    <g transform="rotate(288)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(108)" />
+      
+      <!-- Petal 5 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
             fill="url(#petal-gradient)" 
-            stroke="#FFF1F2" 
-            stroke-width="1" 
-            opacity="0.95" 
-            filter="url(#glass-blur)" />
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(144)" />
+      
+      <!-- Petal 6 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
+            fill="url(#petal-gradient)" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(180)" />
+      
+      <!-- Petal 7 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
+            fill="url(#petal-gradient)" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(216)" />
+      
+      <!-- Petal 8 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
+            fill="url(#petal-gradient)" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(252)" />
+      
+      <!-- Petal 9 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
+            fill="url(#petal-gradient)" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(288)" />
+      
+      <!-- Petal 10 -->
+      <path d="M0,0 Q-10,-30 -30,-60 Q-35,-80 -15,-110 Q10,-140 35,-110 Q60,-80 40,-50 Q20,-20 0,0" 
+            fill="url(#petal-gradient)" 
+            stroke="#FFF0EB" 
+            stroke-width="1"
+            filter="url(#pearl-shine)"
+            transform="rotate(324)" />
     </g>
     
-    <!-- Overlay holographic shimmer on all petals -->
-    <g filter="url(#holographic-shimmer)" opacity="0.5">
-      <g transform="rotate(0)">
-        <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
+    <!-- Flower center -->
+    <g>
+      <!-- Pearl center -->
+      <circle cx="0" cy="0" r="30" 
+              fill="url(#pearl-gradient)" 
+              stroke="#F9E6E0" 
+              stroke-width="1"
+              filter="url(#pearl-shine)" />
+      
+      <!-- Pearl decorations around center -->
+      <g>
+        <!-- 12 pearls around the center -->
+        <circle cx="0" cy="-30" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="15" cy="-26" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="26" cy="-15" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="30" cy="0" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="26" cy="15" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="15" cy="26" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="0" cy="30" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="-15" cy="26" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="-26" cy="15" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="-30" cy="0" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="-26" cy="-15" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
+        <circle cx="-15" cy="-26" r="5" fill="url(#small-pearl)" filter="url(#pearl-shine)" />
       </g>
-      <g transform="rotate(72)">
-        <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
-      </g>
-      <g transform="rotate(144)">
-        <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
-      </g>
-      <g transform="rotate(216)">
-        <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
-      </g>
-      <g transform="rotate(288)">
-        <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
-      </g>
-    </g>
-    
-    <!-- Center circle with premium glass effect -->
-    <circle cx="0" cy="0" r="35" 
-            fill="url(#center-gradient)" 
-            stroke="#F9F5F1" 
-            stroke-width="1" 
-            filter="url(#premium-glass)" />
-    
-    <!-- Soft highlights -->
-    <circle cx="-15" cy="-15" r="5" fill="#FFFFFF" opacity="0.6" />
-    <circle cx="15" cy="15" r="3" fill="#FFFFFF" opacity="0.7" />
-    
-    <!-- Iridescent glow effect on the whole flower -->
-    <g filter="url(#iridescent-glow)" opacity="0.7">
-      <circle cx="0" cy="0" r="95" fill="none" stroke="#FFFFFF" stroke-width="0.5" />
+      
+      <!-- Center shimmer -->
+      <circle cx="-5" cy="-5" r="8" fill="#FFFFFF" opacity="0.3" />
+      <circle cx="7" cy="7" r="5" fill="#FFFFFF" opacity="0.2" />
     </g>
   </g>
   
-  <!-- Small decorative shimmer dots -->
-  <g opacity="0.4">
-    <circle cx="350" cy="170" r="1.5" fill="#FFFFFF" />
-    <circle cx="380" cy="200" r="1" fill="#FFFFFF" />
-    <circle cx="410" cy="180" r="0.8" fill="#FFFFFF" />
-    <circle cx="440" cy="210" r="1.2" fill="#FFFFFF" />
-    <circle cx="470" cy="190" r="0.7" fill="#FFFFFF" />
+  <!-- Subtle iridescent highlights -->
+  <g opacity="0.15">
+    <circle cx="300" cy="170" r="1" fill="#FFFFFF" />
+    <circle cx="330" cy="200" r="0.8" fill="#FFFFFF" />
+    <circle cx="360" cy="180" r="0.6" fill="#FFFFFF" />
+    <circle cx="390" cy="210" r="0.7" fill="#FFFFFF" />
+    <circle cx="420" cy="190" r="0.5" fill="#FFFFFF" />
   </g>
 </svg>
