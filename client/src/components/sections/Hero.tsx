@@ -22,18 +22,20 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative flex justify-center items-center">
-            <div className="flower-decoration absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 opacity-95 transform hover:rotate-12 transition-transform duration-1000">
+            <div className="flower-decoration absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 opacity-95">
               <img 
                 src="/assets/holographic-flower.svg" 
                 alt="" 
-                className="w-full h-full object-contain" 
+                className="w-full h-full object-contain hover-effect" 
                 style={{
                   filter: "drop-shadow(0 0 10px rgba(240, 218, 214, 0.3))",
                   animation: "pulse 20s infinite ease-in-out, shimmer 25s infinite ease-in-out"
                 }}
               />
             </div>
-            <h1 className="hero-title relative z-10 mb-6 font-serif text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none tracking-tight">
+            <h1 className="hero-title relative z-10 mb-6 font-playfair text-6xl sm:text-7xl md:text-8xl lg:text-9xl leading-none tracking-wider text-primary-dark" style={{
+              textShadow: "1px 1px 2px rgba(0, 0, 0, 0.1)"
+            }}>
               khushbunaz
             </h1>
           </div>
