@@ -58,9 +58,9 @@
   
   @keyframes shimmer {
     0% { filter: hue-rotate(0deg) brightness(1); }
-    25% { filter: hue-rotate(45deg) brightness(1.05); }
-    50% { filter: hue-rotate(90deg) brightness(1.1); }
-    75% { filter: hue-rotate(45deg) brightness(1.05); }
+    25% { filter: hue-rotate(15deg) brightness(1.1); }
+    50% { filter: hue-rotate(30deg) brightness(1.2); }
+    75% { filter: hue-rotate(15deg) brightness(1.1); }
     100% { filter: hue-rotate(0deg) brightness(1); }
   }
 }

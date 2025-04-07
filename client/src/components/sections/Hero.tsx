@@ -22,13 +22,13 @@ export default function Hero() {
           transition={{ duration: 0.8 }}
         >
           <div className="relative flex justify-center items-center">
-            <div className="flower-decoration absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-64 md:h-64 opacity-90 transform hover:rotate-12 transition-transform duration-1000">
+            <div className="flower-decoration absolute z-0 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-48 h-48 md:w-72 md:h-72 opacity-95 transform hover:rotate-12 transition-transform duration-1000">
               <img 
                 src="/assets/holographic-flower.svg" 
                 alt="" 
                 className="w-full h-full object-contain" 
                 style={{
-                  filter: "drop-shadow(0 0 8px rgba(255,255,255,0.3))",
+                  filter: "drop-shadow(0 0 12px rgba(255, 215, 0, 0.5))",
                   animation: "pulse 10s infinite ease-in-out, shimmer 15s infinite ease-in-out"
                 }}
               />

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="600" height="600" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>
-    <linearGradient id="petal-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#f1f5f9" />
-      <stop offset="25%" stop-color="#e0f2fe" />
-      <stop offset="50%" stop-color="#bae6fd" />
-      <stop offset="75%" stop-color="#fde68a" />
-      <stop offset="100%" stop-color="#fdba74" />
+    <linearGradient id="gold-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFD700" /> <!-- Gold -->
+      <stop offset="25%" stop-color="#FFDF00" /> <!-- Golden yellow -->
+      <stop offset="50%" stop-color="#F0C420" /> <!-- Goldenrod -->
+      <stop offset="75%" stop-color="#DAA520" /> <!-- Golden amber -->
+      <stop offset="100%" stop-color="#B8860B" /> <!-- Dark goldenrod -->
     </linearGradient>
     
     <filter id="blur-filter" x="-50%" y="-50%" width="200%" height="200%">
@@ -19,52 +19,64 @@
       <feGaussianBlur stdDeviation="0.5" />
     </filter>
     
-    <linearGradient id="holographic" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="rgba(255, 255, 255, 0.8)" />
-      <stop offset="20%" stop-color="rgba(200, 230, 255, 0.8)" />
-      <stop offset="40%" stop-color="rgba(180, 210, 255, 0.7)" />
-      <stop offset="60%" stop-color="rgba(255, 210, 180, 0.7)" />
-      <stop offset="80%" stop-color="rgba(255, 230, 200, 0.8)" />
-      <stop offset="100%" stop-color="rgba(255, 255, 255, 0.8)" />
+    <linearGradient id="luxury-gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#FFFFCC" /> <!-- Very light gold -->
+      <stop offset="20%" stop-color="#FFD700" /> <!-- Gold -->
+      <stop offset="40%" stop-color="#FFC125" /> <!-- Golden yellow -->
+      <stop offset="60%" stop-color="#E6BE8A" /> <!-- Pale gold -->
+      <stop offset="80%" stop-color="#DAA520" /> <!-- Goldenrod -->
+      <stop offset="100%" stop-color="#B8860B" /> <!-- Dark goldenrod -->
     </linearGradient>
+    
+    <filter id="gold-glow" x="-50%" y="-50%" width="200%" height="200%">
+      <feGaussianBlur stdDeviation="5" result="blur" />
+      <feFlood flood-color="#FFD700" flood-opacity="0.7" result="color" />
+      <feComposite in="color" in2="blur" operator="in" result="glow" />
+      <feComposite in="SourceGraphic" in2="glow" operator="over" />
+    </filter>
   </defs>
   
   <!-- Main flower petals -->
   <g transform="translate(300, 300)">
     <!-- Petal 1 -->
     <g transform="rotate(0)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#petal-gradient)" stroke="white" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
+      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#gold-gradient)" stroke="#E6BE8A" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
     </g>
     
     <!-- Petal 2 -->
     <g transform="rotate(72)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#petal-gradient)" stroke="white" stroke-width="1" opacity="0.85" filter="url(#shimmer)" />
+      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#gold-gradient)" stroke="#E6BE8A" stroke-width="1" opacity="0.95" filter="url(#shimmer)" />
     </g>
     
     <!-- Petal 3 -->
     <g transform="rotate(144)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#petal-gradient)" stroke="white" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
+      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#gold-gradient)" stroke="#E6BE8A" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
     </g>
     
     <!-- Petal 4 -->
     <g transform="rotate(216)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#petal-gradient)" stroke="white" stroke-width="1" opacity="0.85" filter="url(#shimmer)" />
+      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#gold-gradient)" stroke="#E6BE8A" stroke-width="1" opacity="0.95" filter="url(#shimmer)" />
     </g>
     
     <!-- Petal 5 -->
     <g transform="rotate(288)">
-      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#petal-gradient)" stroke="white" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
+      <path d="M0,0 C40,-70 80,-80 100,-30 C120,20 60,80 0,0" fill="url(#gold-gradient)" stroke="#E6BE8A" stroke-width="1" opacity="0.9" filter="url(#shimmer)" />
     </g>
     
-    <!-- Center circle with holographic effect -->
-    <circle cx="0" cy="0" r="35" fill="url(#holographic)" stroke="white" stroke-width="1" />
+    <!-- Center circle with luxury gold effect -->
+    <circle cx="0" cy="0" r="35" fill="url(#luxury-gold)" stroke="#E6BE8A" stroke-width="1" filter="url(#gold-glow)" />
     
     <!-- Small highlight dots -->
-    <circle cx="-15" cy="-15" r="5" fill="white" opacity="0.8" />
-    <circle cx="15" cy="15" r="3" fill="white" opacity="0.9" />
+    <circle cx="-15" cy="-15" r="5" fill="#FFFFCC" opacity="0.8" />
+    <circle cx="15" cy="15" r="3" fill="#FFFFCC" opacity="0.9" />
   </g>
   
-  <!-- Star shape decorative elements -->
-  <path d="M380,150 L390,170 L410,175 L395,190 L400,210 L380,200 L360,210 L365,190 L350,175 L370,170 Z" fill="black" opacity="0.7" />
-  <path d="M480,300 L485,310 L495,312 L487,320 L490,330 L480,325 L470,330 L473,320 L465,312 L475,310 Z" fill="black" opacity="0.5" />
+  <!-- Small decorative gold dust -->
+  <g filter="url(#gold-glow)" opacity="0.6">
+    <circle cx="350" cy="170" r="2" fill="#FFD700" />
+    <circle cx="380" cy="200" r="1.5" fill="#FFD700" />
+    <circle cx="410" cy="180" r="1" fill="#FFD700" />
+    <circle cx="440" cy="210" r="2" fill="#FFD700" />
+    <circle cx="470" cy="190" r="1" fill="#FFD700" />
+  </g>
 </svg>
