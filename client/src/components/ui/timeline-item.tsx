@@ -38,9 +38,7 @@ export default function TimelineItem({
             ))}
           </ul>
           
-          {!isLast && (
-            <div className="absolute left-0 top-0 h-full border-l border-gray-200 ml-[3px]"></div>
-          )}
+          {/* Vertical timeline line removed */}
         </div>
       </div>
     </div>
