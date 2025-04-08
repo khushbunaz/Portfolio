@@ -1,18 +1,18 @@
-import { 
-  Brain,
-  Code,
-  BarChart,
-  Globe,
-  Database,
-  Wrench,
-  Heart,
-  Bot,
-  Utensils,
-  Shirt,
-  Bug,
-  GraduationCap,
+import {
   Award,
-  HelpingHand
+  BarChart,
+  Bot,
+  Brain,
+  Bug,
+  Code,
+  Database,
+  Globe,
+  GraduationCap,
+  Heart,
+  HelpingHand,
+  Shirt,
+  Utensils,
+  Wrench
 } from "lucide-react";
 
 export const projects = [
@@ -22,7 +22,7 @@ export const projects = [
     description: "Developed a heart disease prediction model using machine learning classification techniques including SVM and Random Forest.",
     icon: Heart,
     category: "ml",
-    githubLink: "https://github.com/khushbunaz/heart-disease-prediction",
+    githubLink: "https://github.com/khushbunaz/Heart__Disease__Prediction",
     technologies: ["Machine Learning", "Python", "Scikit-learn", "Matplotlib", "Power BI"]
   },
   {
@@ -31,7 +31,7 @@ export const projects = [
     description: "Built a Tkinter-based AI-powered application for automated student record management with OCR and NLP-based document classification.",
     icon: Bot,
     category: "ai",
-    githubLink: "https://github.com/khushbunaz/ai-desktop-app",
+    githubLink: "https://github.com/khushbunaz/AI-Powered-Desktop-Application",
     technologies: ["Python", "Tkinter", "OCR", "NLP"]
   },
   {
@@ -40,7 +40,7 @@ export const projects = [
     description: "Built a console-based system in Java for efficient order management using ArrayDeque with robust file operations.",
     icon: Utensils,
     category: "web",
-    githubLink: "https://github.com/khushbunaz/restaurant-management",
+    githubLink: "https://github.com/khushbunaz/Restaurant_Management_System",
     technologies: ["Java", "Data Structures", "File I/O"]
   },
   {
@@ -49,7 +49,7 @@ export const projects = [
     description: "Built a personalized fashion recommendation system using collaborative filtering and content-based approaches with Flask deployment.",
     icon: Shirt,
     category: "ml",
-    githubLink: "https://github.com/khushbunaz/fashion-recommendation",
+    githubLink: "https://github.com/khushbunaz/Fashion_Recommendation_System",
     technologies: ["Python", "Flask", "Scikit-learn", "Pandas"]
   },
   {
@@ -58,7 +58,7 @@ export const projects = [
     description: "Automated web scraping tool that extracts key business data from multiple sources with data cleaning & deduplication features.",
     icon: Bug,
     category: "automation",
-    githubLink: "https://github.com/khushbunaz/leadgenius-scraper",
+    githubLink: "https://github.com/khushbunaz/LeadGenius_Scraper",
     technologies: ["Python", "BeautifulSoup", "Selenium", "Data Processing"]
   }
 ];
