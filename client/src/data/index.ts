@@ -135,7 +135,7 @@ export const experiences = [
     title: "Python and Machine Learning Intern",
     company: "BrainyBeam Technologies Pvt. Ltd.",
     location: "Ahmedabad, India",
-    period: "Feb 2023 — Present",
+    period: "Nov 2024 — Present",
     responsibilities: [
       "Designed and optimized machine learning models for predictive analytics using TensorFlow and PyTorch.",
       "Implemented neural network architectures for deep learning applications in image segmentation and classification.",
@@ -148,7 +148,7 @@ export const experiences = [
     title: "Python Developer Intern",
     company: "Oceanmtech Pvt Ltd",
     location: "Ahmedabad, India",
-    period: "May 2022 — Sep 2022",
+    period: "Nov 2023 — March 2024",
     responsibilities: [
       "Developed AI-powered web applications using Flask and Python.",
       "Created and optimized API integrations for ML model deployment and data pipelines.",

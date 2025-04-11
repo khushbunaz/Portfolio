@@ -1,12 +1,12 @@
-import { motion } from "framer-motion";
-import { experiences } from "@/data";
 import TimelineItem from "@/components/ui/timeline-item";
+import { experiences } from "@/data";
+import { motion } from "framer-motion";
 
 export default function Experience() {
   return (
     <section id="experience" className="py-24 md:py-32">
       <div className="minimalist-container">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
